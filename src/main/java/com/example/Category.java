@@ -1,9 +1,12 @@
 package com.example;
 
+//importera hashmap, map, objects - i hashcode.
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+// public - andra klasser får använda den men;
+// final, ingen kan ärva från klassen. gör den oföränderlig och stabil.
 public final class Category {
     private final String name;
     private static final Map<String, Category> CACHE = new HashMap<>();
@@ -21,12 +24,12 @@ public final class Category {
         if (name == null) {
             throw new IllegalArgumentException("Category name can't be null");
         }
-        String trimmed = name.trim();
+        String trimmed = name.trim(); //spara den trimmade namnet i en variabel trimmed
         if (trimmed.isEmpty()) {
-            throw new IllegalArgumentException("Category name can't be blank");
+            throw new IllegalArgumentException("Category name can't be empty");
         }
 
-        String normalizedName = trimmed.substring(0, 1).toUpperCase() +
+        String normalizedName = trimmed.substring(0, 1).toUpperCase() + //Spara sträng som är normaliserad i variabel normalizedName
                 trimmed.substring(1).toLowerCase();
 
         Category cached = CACHE.get(normalizedName);
