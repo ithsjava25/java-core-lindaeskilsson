@@ -17,7 +17,6 @@ public final class Category {
     }
 
     // metod för validering, trimma och göra första bokstaven stor, resten små.
-    // Cacha instanser.
     // retunera samma instans för samma namn.
     public static Category of(String name) {
 
