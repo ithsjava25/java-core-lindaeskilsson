@@ -1,4 +1,9 @@
 package com.example;
 
-public class Shippable {
+import java.math.BigDecimal;
+
+public interface Shippable {
+    //vikt och kostnad
+    BigDecimal calculateShippingCost();
+    double weight();
 }

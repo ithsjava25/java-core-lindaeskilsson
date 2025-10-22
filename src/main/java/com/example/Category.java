@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-// public - andra klasser får använda den men;
-// final, ingen kan ärva från klassen. gör den oföränderlig och stabil.
+// public, andra klasser får använda den
+// final, ingen kan ärva från klassen. gör den oföränderlig.
 public final class Category {
     private final String name;
     private static final Map<String, Category> CACHE = new HashMap<>();
 
-    // Privat konstruktor – kan bara anropas inifrån klassen
+    // Privat konstruktor, kan bara anropas inifrån klassen
     private Category(String name) {
         this.name = name;
     }
@@ -26,7 +26,7 @@ public final class Category {
         }
         String trimmed = name.trim(); //spara den trimmade namnet i en variabel trimmed
         if (trimmed.isEmpty()) {
-            throw new IllegalArgumentException("Category name can't be empty");
+            throw new IllegalArgumentException("Category name can't be blank");
         }
 
         String normalizedName = trimmed.substring(0, 1).toUpperCase() + //Spara sträng som är normaliserad i variabel normalizedName
@@ -41,8 +41,8 @@ public final class Category {
         return cached;
     }
 
-    // Getter testerna kalla på name()
-    public String name() {
+    // Getter testerna kalla på namemetod
+    public String getName() {
         return name;
     }
 
