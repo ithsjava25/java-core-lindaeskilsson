@@ -35,7 +35,7 @@ public class ElectronicsProduct extends Product implements Shippable {
         this(uuid, name, category, price, warrantyMonths, BigDecimal.valueOf(weight));
     }
 
-    // overridear metoden från Shippable
+    // overridear metode från Shippable
     // Returnerar vikten som double (matchar interfacet)
     @Override
     public double weight() {
