@@ -50,6 +50,10 @@ public final class Warehouse {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null.");
         }
+        // Kontrollera om produkten redan finns (dubblett-ID)
+        if (products.stream().anyMatch(p -> p.uuid().equals(product.uuid()))) {
+            throw new IllegalArgumentException("Duplicate product ID: " + product.uuid());
+        }
         products.add(product);
     }
 
@@ -70,7 +74,7 @@ public final class Warehouse {
 
     // Returnerar alla produkter som en omodifierbar lista
     public List<Product> getProducts() {
-        return new ArrayList<>(products);
+        return Collections.unmodifiableList(new ArrayList<>(products));
     }
 
     // Returnerar alla produkter som har gått ut (interface: Perishable)
