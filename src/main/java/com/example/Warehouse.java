@@ -52,7 +52,7 @@ public final class Warehouse {
         }
         // Kontrollera om produkten redan finns (dubblett-ID)
         if (products.stream().anyMatch(p -> p.uuid().equals(product.uuid()))) {
-            throw new IllegalArgumentException("Duplicate product ID: " + product.uuid());
+            throw new IllegalArgumentException("Product with that id already exists, use updateProduct for updates.");
         }
         products.add(product);
     }
